@@ -8,9 +8,9 @@ def apply_coupons(cart, coupons)
     item_info[:count] -= coupon[:num]
     
     new_item = {
-      item: item_info[:item] + " W/COUPON"
-      price: coupon[:cost]/coupon[:num]
-      clearance: item_info[:clearance]
+      item: item_info[:item] + " W/COUPON",
+      price: coupon[:cost]/coupon[:num],
+      clearance: item_info[:clearance],
       count: coupon[:num]
     }
     cart.push(new_item)
