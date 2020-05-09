@@ -29,10 +29,10 @@ def checkout(cart, coupons)
   coupon_cart = apply_coupons(org_cart, coupons)
   apply_clearance(coupon_cart)
   
-  total = 0
-  for item in coupon_cart do
-    total += item[:count] * item[:price]
-  end 
+  total = coupon_cart.reduce(0) {|total, item| total += item[:count] * item[:price]}
+  # for item in coupon_cart do
+  #   total += item[:count] * item[:price]
+  # end 
   
   total *= 0.9 if total > 100
   return total.round(2)
